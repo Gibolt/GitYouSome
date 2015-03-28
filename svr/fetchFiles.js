@@ -20,11 +20,6 @@ var fetchFiles = {
 		}
 		return list;
 	},
-
-	removeNonFunctions : function(code) {
-		var res = str.replace(/\".*\"/g, "\"\"");
-		return res;
-	},
 }
 
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {

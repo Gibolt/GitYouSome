@@ -7,6 +7,8 @@ var app        = express();
 var bodyParser = require('body-parser');
 var fs         = require('fs');
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+// var parser = bodyParser.json();
 
 // Local Imports
 var svr = require('./serverFunctions').svr;
@@ -16,15 +18,21 @@ var fetchFiles = require('./fetchFiles').fetchFiles;
 var codeBlocks = require('./codeBlocks').codeBlocks;
 var code      = fetchFiles.getCode(fs);
 var functions = fetchFiles.getFunctions(fs);
-codeBlocks.init(app, svr);
 
 var fnCount = codeBlocks.countFunctions(functions, code);
 console.log("Length: " + fnCount.length + ", " + code.length);
 codeBlocks.cleanEmpty(fnCount, code);
 var fnCount = codeBlocks.compressArray(fnCount);
 var code    = codeBlocks.compressArray(code);
+// console.log(fnCount);
+// console.log(code);
 console.log("Length: " + fnCount.length + ", " + code.length);
-console.log(JSON.stringify(fnCount));
+// console.log(JSON.stringify(fnCount));
+codeBlocks.setup(code, fnCount);
+codeBlocks.init(app, svr);
+
+// var userList = {"for":true, "var":true, "if":1};
+// codeBlocks.calculateScore(userList, fnCount);
 
 // var con = svr.mysqlConnection(mysql, config);
 

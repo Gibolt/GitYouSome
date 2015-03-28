@@ -1,3 +1,5 @@
+var a=5;
+-----
 var total = 0;
 for (var i=0; i<4; i++) {
 	total += i;
@@ -8,7 +10,7 @@ var a = 0;
 while(a<5) {
 	a++;
 }
-a;
+console.log(a);
 -----
 if (true) {
 	while (false) {
@@ -32,3 +34,10 @@ Math.abs(1.1);
 Math.abs(1.1);
 	if (Math.abs(1.1) === 1) {
 }
+-----
+var q=13;
+while (q==13) {
+	q=1;
+}
+-----
+for (;false;);

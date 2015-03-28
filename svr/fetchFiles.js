@@ -4,8 +4,7 @@ var fetchFiles = {
 		var list = [];
 		if (fs.existsSync(file)) {
 			var data = fs.readFileSync(file).toString();
-			list = data.split("\r\n-----\r\n");
-			console.log(list);
+			list = data.split("\n-----\n");
 			return list;
 		}
 		return list;
@@ -17,7 +16,6 @@ var fetchFiles = {
 		if (fs.existsSync(file)) {
 			var data = fs.readFileSync(file).toString();
 			list = JSON.parse(data);
-			console.log(list);
 			return list;
 		}
 		return list;

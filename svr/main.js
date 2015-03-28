@@ -18,6 +18,14 @@ var code      = fetchFiles.getCode(fs);
 var functions = fetchFiles.getFunctions(fs);
 codeBlocks.init(app, svr);
 
+var fnCount = codeBlocks.countFunctions(functions, code);
+console.log("Length: " + fnCount.length + ", " + code.length);
+codeBlocks.cleanEmpty(fnCount, code);
+var fnCount = codeBlocks.compressArray(fnCount);
+var code    = codeBlocks.compressArray(code);
+console.log("Length: " + fnCount.length + ", " + code.length);
+console.log(JSON.stringify(fnCount));
+
 // var con = svr.mysqlConnection(mysql, config);
 
 app.get('/', function(req, res) {

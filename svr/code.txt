@@ -27,6 +27,8 @@ total;
 -----
 Math.abs(1.1);
 -----
+
+-----
 Math.abs(1.1);
 	if (Math.abs(1.1) === 1) {
 }

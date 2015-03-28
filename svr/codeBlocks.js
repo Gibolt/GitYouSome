@@ -3,7 +3,6 @@ var codeBlocks = {
 		console.log("init");
 		app.get('/code', function(req, res) {
 			var obj = req.body;
-			// svr.close(res);
 			if (obj.use) {
 				res.send(codeBlocks.calculateScore(obj));
 			}
@@ -18,10 +17,6 @@ var codeBlocks = {
 			else {
 				res.send("Hello World");
 			}
-		});
-
-		app.get('/a', function(req, res) {
-			res.send("Hello World");
 		});
 	},
 

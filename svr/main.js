@@ -9,12 +9,13 @@ var fs         = require('fs');
 app.use(express.static(__dirname + '/public'));
 
 // Local Imports
-var svr    = require('./serverFunctions').svr;
+var svr = require('./serverFunctions').svr;
 
 // Local Endpoints
 var fetchFiles = require('./fetchFiles').fetchFiles;
-var codeBlocks     = require('./codeBlocks').codeBlocks;
-fetchFiles.init(app, fs);
+var codeBlocks = require('./codeBlocks').codeBlocks;
+var code      = fetchFiles.getCode(fs);
+var functions = fetchFiles.getFunctions(fs);
 codeBlocks.init(app, svr);
 
 // var con = svr.mysqlConnection(mysql, config);

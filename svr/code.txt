@@ -1,0 +1,32 @@
+var total = 0;
+for (var i=0; i<4; i++) {
+	total += i;
+};
+total;
+-----
+var a = 0;
+while(a<5) {
+	a++;
+}
+a;
+-----
+if (true) {
+	while (false) {
+	
+	}
+	15;
+}
+-----
+var total = 0;
+if (total) {
+}
+for (var i=0; i<4; i++) {
+	total += i;
+};
+total;
+-----
+Math.abs(1.1);
+-----
+Math.abs(1.1);
+if (Math.abs(1.1) === 1) {
+}

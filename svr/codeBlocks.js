@@ -8,7 +8,10 @@ var codeBlocks = {
 			console.log(obj);
 			if (obj) {
 				var pos = codeBlocks.calculateScore(obj, codeBlocks.fnCount);
-				res.send("a " + pos + "; " + codeBlocks.code[pos]);
+				res.send([
+					codeBlocks.code[pos[0]],
+					codeBlocks.code[pos[1]]
+				]);
 			}
 		});
 
@@ -69,14 +72,16 @@ var codeBlocks = {
 		console.log(count);
 		console.log(scores);
 		var best = 0;
-		var bestScore = 0;
+		var bestScore = -1;
+		var secondBest = 1;
 		for (var i=0; i<scores.length; i++) {
 			if (count[i] >= keys[i] && valid[i] && scores[i] > bestScore) {
+				secondBest = best;
 				best = i;
 				bestScore = scores[i];
 			}
 		}
-		return best;
+		return [best, secondBest];
 	},
 
 	cleanEmpty : function(list, code) {

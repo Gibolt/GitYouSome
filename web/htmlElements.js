@@ -1,6 +1,10 @@
 var html = {
 	empty : function(){},
 
+	clear : function() {
+		document.body.innerHTML = "";
+	},
+
 	frag : document.createDocumentFragment(),
 
 	url : function(file) {
